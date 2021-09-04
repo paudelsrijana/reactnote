@@ -74,6 +74,7 @@ class App extends Component {
                 />
               );
             })}
+            <NotesItem />
           </div>
         </form>
       </div>
