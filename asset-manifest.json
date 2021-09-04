@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/reactnote/static/css/main.491767ca.chunk.css",
+    "main.js": "/reactnote/static/js/main.bad574cc.chunk.js",
+    "main.js.map": "/reactnote/static/js/main.bad574cc.chunk.js.map",
+    "runtime-main.js": "/reactnote/static/js/runtime-main.792974b8.js",
+    "runtime-main.js.map": "/reactnote/static/js/runtime-main.792974b8.js.map",
+    "static/js/2.ce89848e.chunk.js": "/reactnote/static/js/2.ce89848e.chunk.js",
+    "static/js/2.ce89848e.chunk.js.map": "/reactnote/static/js/2.ce89848e.chunk.js.map",
+    "index.html": "/reactnote/index.html",
+    "static/css/main.491767ca.chunk.css.map": "/reactnote/static/css/main.491767ca.chunk.css.map",
+    "static/js/2.ce89848e.chunk.js.LICENSE.txt": "/reactnote/static/js/2.ce89848e.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.792974b8.js",
+    "static/js/2.ce89848e.chunk.js",
+    "static/css/main.491767ca.chunk.css",
+    "static/js/main.bad574cc.chunk.js"
+  ]
+}
