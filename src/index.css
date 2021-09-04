@@ -1,5 +1,6 @@
 .container {
   margin: 20px;
+  background-color: rgba(176, 187, 250, 0.315);
 }
 /*  CSS Header part */
 .header {
@@ -82,5 +83,5 @@ button.save {
 .note-lists {
   display: grid;
   grid-gap: 15px;
-  grid-template-columns: repeat(auto-fit, minmax(540px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
 }

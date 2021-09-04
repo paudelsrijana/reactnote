@@ -1,6 +1,6 @@
 const NotesItem = (props) => {
   return (
-    <div className="notes new">
+    <div className="notes">
       <textarea
         rows="2"
         cols="10"
@@ -23,7 +23,7 @@ const NotesItem = (props) => {
         onChange={props.onNotesDetailInput}
       />
       <div className="note-footer">
-        <small onChange={props.onNotesDate}>{props.notesDate}</small>
+        <small>{props.notesDate} </small>
       </div>
       <button className="save" onClick={props.onSaveClick}>
         Save Note

@@ -9,13 +9,7 @@ class App extends Component {
       notesDate: "",
       notes: window.localStorage.getItem("items")
         ? JSON.parse(window.localStorage.getItem("items"))
-        : [
-            {
-              notesTitleText: "hello",
-              notesDetailText: "hy",
-              notesDate: "12/12/1234",
-            },
-          ],
+        : [],
     };
   }
   handleTitleInputChange = (event) => {
@@ -30,22 +24,17 @@ class App extends Component {
       notesDetail: value,
     });
   };
-  handleDateInputChange = (event) => {
-    const date = new Date();
-    this.setState({
-      notesDate: date.toLocaleDateString(),
-    });
-  };
+
   handleSaveClick = (e) => {
     e.preventDefault();
     if (this.state.notesTitle !== "" && this.state.notesDetail !== "") {
       const notesTitle = this.state.notesTitle;
       const notesDetail = this.state.notesDetail;
-      const notesDate = this.state.notesDate;
+      const notesDate = new Date();
       const note = {
         notesTitleText: notesTitle,
         notesDetailText: notesDetail,
-        notesDateInput: notesDate,
+        notesDateInput: notesDate.toLocaleDateString(),
       };
       const notesCloned = this.state.notes.slice();
       notesCloned.push(note);
@@ -57,7 +46,6 @@ class App extends Component {
         notesDate: "",
       });
     }
-    console.log("hey");
   };
   render() {
     return (
@@ -82,7 +70,6 @@ class App extends Component {
                   notesDate={note.notesDateInput}
                   onNotesTitleInput={this.handleTitleInputChange}
                   onNotesDetailInput={this.handleDetailInputChange}
-                  onNotesDate={this.handleDateInputChange}
                   onSaveClick={this.handleSaveClick}
                 />
               );
