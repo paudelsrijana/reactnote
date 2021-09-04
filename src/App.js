@@ -11,6 +11,10 @@ class App extends Component {
       notes: window.localStorage.getItem("items")
         ? JSON.parse(window.localStorage.getItem("items"))
         : [],
+<<<<<<< HEAD
+=======
+
+>>>>>>> 45611e02d00280008e4d779df1c8643a706b34e3
       showNoteAddInput: false,
     };
   }
@@ -52,6 +56,7 @@ class App extends Component {
       });
     }
   };
+<<<<<<< HEAD
   handleRemoveNotes = (index) => {
     const notesCloned = this.state.notes.slice();
     notesCloned.splice(index, 1);
@@ -61,6 +66,8 @@ class App extends Component {
     console.log("hey");
     window.localStorage.setItem("items", JSON.stringify(notesCloned));
   };
+=======
+>>>>>>> 45611e02d00280008e4d779df1c8643a706b34e3
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.notes !== this.state.notes) {
@@ -71,6 +78,7 @@ class App extends Component {
   toggleAddInput = () => {
     this.setState((state) => ({ showNoteAddInput: !state.showNoteAddInput }));
   };
+<<<<<<< HEAD
   handleSearchInputChange = (event) => {
     const value = event.target.value;
     this.setState({
@@ -105,6 +113,9 @@ class App extends Component {
       notes: notesCloned,
     });
   };
+=======
+
+>>>>>>> 45611e02d00280008e4d779df1c8643a706b34e3
   render() {
     const filtered = this.searchnotes();
     return (
@@ -123,6 +134,7 @@ class App extends Component {
               <i className="fa fa-plus-square add-notes col-lg-4" />
             </button>
           </div>
+<<<<<<< HEAD
           <div className="search-div">
             <input
               type="text"
@@ -133,6 +145,8 @@ class App extends Component {
               value={this.state.searchInput}
             />
           </div>
+=======
+>>>>>>> 45611e02d00280008e4d779df1c8643a706b34e3
           {this.state.showNoteAddInput ? (
             <NotesItem
               notesTitle={this.state.notesTitle}
@@ -154,6 +168,7 @@ class App extends Component {
                   // onNotesTitleInput={this.handleTitleInputChange}
                   // onNotesDetailInput={this.handleDetailInputChange}
                   // onSaveClick={this.handleSaveClick}
+<<<<<<< HEAD
                   onDeleteClick={() => {
                     this.handleRemoveNotes(i);
                   }}
@@ -164,6 +179,8 @@ class App extends Component {
                   onEditNoteChange={(e) => {
                     this.handleEditNoteChange(e, i);
                   }}
+=======
+>>>>>>> 45611e02d00280008e4d779df1c8643a706b34e3
                 />
               );
             })}
