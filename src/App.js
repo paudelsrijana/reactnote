@@ -10,6 +10,8 @@ class App extends Component {
       notes: window.localStorage.getItem("items")
         ? JSON.parse(window.localStorage.getItem("items"))
         : [],
+
+      showNoteAddInput: false,
     };
   }
   handleTitleInputChange = (event) => {
@@ -38,15 +40,26 @@ class App extends Component {
       };
       const notesCloned = this.state.notes.slice();
       notesCloned.push(note);
-      window.localStorage.setItem("items", JSON.stringify(notesCloned));
       this.setState({
         notes: notesCloned,
         notesTitle: "",
         notesDetail: "",
         notesDate: "",
+        showNoteAddInput: false,
       });
     }
   };
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.notes !== this.state.notes) {
+      window.localStorage.setItem("items", JSON.stringify(this.state.notes));
+    }
+  }
+
+  toggleAddInput = () => {
+    this.setState((state) => ({ showNoteAddInput: !state.showNoteAddInput }));
+  };
+
   render() {
     return (
       <div className="container">
@@ -56,10 +69,24 @@ class App extends Component {
               <img src="logo.png" alt="logo" />
             </div>
             <h4 className="col-lg-4">Add Your New Notes Here: </h4>
-            <button className="add-click">
+            <button
+              type="button"
+              className="add-click"
+              onClick={this.toggleAddInput}
+            >
               <i className="fa fa-plus-square add-notes col-lg-4" />
             </button>
           </div>
+          {this.state.showNoteAddInput ? (
+            <NotesItem
+              notesTitle={this.state.notesTitle}
+              notesContent={this.state.notesDetail}
+              notesDate={this.state.notesDate}
+              onNotesTitleInput={this.handleTitleInputChange}
+              onNotesDetailInput={this.handleDetailInputChange}
+              onSaveClick={this.handleSaveClick}
+            />
+          ) : null}
           <div className="note-lists">
             {this.state.notes.map((note, i) => {
               return (
@@ -68,9 +95,9 @@ class App extends Component {
                   notesTitle={note.notesTitleText}
                   notesContent={note.notesDetailText}
                   notesDate={note.notesDateInput}
-                  onNotesTitleInput={this.handleTitleInputChange}
-                  onNotesDetailInput={this.handleDetailInputChange}
-                  onSaveClick={this.handleSaveClick}
+                  // onNotesTitleInput={this.handleTitleInputChange}
+                  // onNotesDetailInput={this.handleDetailInputChange}
+                  // onSaveClick={this.handleSaveClick}
                 />
               );
             })}
