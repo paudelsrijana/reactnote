@@ -14,7 +14,7 @@ const NotesItem = (props) => {
       <div className="edit-del-btn">
         <button>✍️</button>
 
-        <button type="button">
+        <button type="button" onClick={props.onDeleteClick}>
           <i className="fa fa-trash" />
         </button>
       </div>
