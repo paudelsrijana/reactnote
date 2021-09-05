@@ -40,7 +40,7 @@ class App extends Component {
         notesTitleText: notesTitle,
         notesDetailText: notesDetail,
         notesDateInput: notesDate.toLocaleDateString(),
-        editMode: false,
+        // editMode: false,
       };
       const notesCloned = this.state.notes.slice();
       notesCloned.push(note);
@@ -85,7 +85,7 @@ class App extends Component {
         .includes(this.state.searchInput.toLowerCase());
     });
   };
-  handleEditMode = (index) => {
+  /* handleEditMode = (index) => {
     const notesCloned = this.state.notes.slice();
     const prevEditMode = notesCloned[index].editMode;
     notesCloned[index].editMode = !prevEditMode;
@@ -105,7 +105,7 @@ class App extends Component {
     this.setState({
       notes: notesCloned,
     });
-  };
+  }; */
 
   render() {
     const filtered = this.searchnotes();
@@ -159,13 +159,13 @@ class App extends Component {
                   onDeleteClick={() => {
                     this.handleRemoveNotes(i);
                   }}
-                  editMode={note.editMode}
-                  onEditMode={() => {
-                    this.handleEditMode(i);
-                  }}
-                  onEditNoteChange={(e) => {
-                    this.handleEditNoteChange(e, i);
-                  }}
+                  // editMode={note.editMode}
+                  // onEditMode={() => {
+                  //   this.handleEditMode(i);
+                  // }}
+                  // onEditNoteChange={(e) => {
+                  //   this.handleEditNoteChange(e, i);
+                  // }}
                 />
               );
             })}

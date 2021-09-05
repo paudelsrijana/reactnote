@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Acme&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Acme&family=Architects+Daughter&display=swap");
 .container {
   margin: 20px;
   background-color: rgba(176, 187, 250, 0.315);
@@ -19,6 +21,7 @@
 .header h4 {
   text-align: center;
   margin-top: 20px;
+  font-family: "Acme", sans-serif;
 }
 .header img {
   max-width: 60px;
@@ -40,8 +43,23 @@ textarea {
   border: none;
   resize: none;
   background-color: rgba(132, 144, 248, 0.027);
-  height: 400px;
+  height: 350px;
+  padding-bottom: 30px;
+  font-family: "Acme", sans-serif !important;
+  font-family: "Architects Daughter", cursive !important;
 }
+input {
+  border: none;
+  background-color: rgba(132, 144, 248, 0.027);
+  height: 50px;
+  padding: 10px;
+
+  font-family: "Acme", sans-serif !important;
+}
+input:focus {
+  outline: none;
+}
+
 textarea:focus {
   outline: none;
 }
@@ -59,16 +77,15 @@ button.save {
 }
 /*CSS for NOtes Item */
 .notes {
-  display: inline-block;
   border: solid 1px rgba(8, 8, 8, 0.425);
   border-radius: 5%;
   position: relative;
-  min-height: 200px;
-  max-height: 200px;
+  min-height: 300px;
+  max-height: 300px;
   display: flex;
   flex-direction: column;
   background-color: rgba(19, 189, 90, 0.158);
-  padding: 15px;
+  padding: 5px;
   margin-bottom: 10px;
 }
 .edit-del-btn {
@@ -76,10 +93,15 @@ button.save {
   bottom: 0;
   right: 0;
 }
-.note-footer {
+.notes-date {
   position: absolute;
   bottom: 0;
-  left: 0;
+  left: 2%;
+}
+.remaining-length {
+  position: absolute;
+  bottom: 4%;
+  right: 5%;
 }
 .note-lists {
   display: grid;
@@ -88,4 +110,7 @@ button.save {
 }
 .search-div {
   margin: 10px;
+}
+.note-footer {
+  margin-top: 20px;
 }
