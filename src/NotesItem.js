@@ -11,24 +11,28 @@ const NotesItem = (props) => {
         value={props.notesContent}
         onChange={props.onNotesDetailInput}
       />
-      <div className="edit-del-btn">
-        <button>✍️</button>
-
-        <button type="button" onClick={props.onDeleteClick}>
-          <i className="fa fa-trash" />
-        </button>
-      </div>
+      {props.showNoteAddInput ? null : (
+        <div className="edit-del-btn">
+          <button>✍️</button>
+          <button type="button" onClick={props.onDeleteClick}>
+            <i className="fa fa-trash" />
+          </button>
+        </div>
+      )}
 
       <div className="note-footer">
         <small className="notes-date">{props.notesDate} </small>
-        <p className="remaining-length">
-          {300 - props.notesContent.length + " Remaining"}
-        </p>
+        {props.showNoteAddInput ? (
+          <p className="remaining-length">
+            {300 - props.notesContent.length + " Remaining"}
+          </p>
+        ) : null}
       </div>
-
-      <button type="button" className="save" onClick={props.onSaveClick}>
-        Save Note
-      </button>
+      {props.showNoteAddInput ? (
+        <button type="button" className="save" onClick={props.onSaveClick}>
+          Save Note
+        </button>
+      ) : null}
     </div>
   );
 };
