@@ -129,7 +129,7 @@ class App extends Component {
             <input
               type="text"
               className="form-control "
-              placeholder="Search your todos...."
+              placeholder="Search your notes...."
               id="searchInput"
               onChange={this.handleSearchInputChange}
               value={this.state.searchInput}
