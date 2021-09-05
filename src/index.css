@@ -34,10 +34,8 @@
   background: none;
   border: none;
 }
-/* CSS for list of new Notes Item */
-.notes.new {
-  background-color: rgba(93, 106, 231, 0.151);
-  position: relative;
+.add-click:focus {
+  outline: none;
 }
 textarea {
   border: none;
