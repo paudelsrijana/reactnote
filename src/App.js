@@ -111,66 +111,64 @@ class App extends Component {
     const filtered = this.searchnotes();
     return (
       <div className="container">
-        <form>
-          <div className="header">
-            <div className="logo col-lg-4">
-              <img src="logo.png" alt="logo" />
-            </div>
-            <h4 className="col-lg-4">Add Your New Notes Here: </h4>
-            <button
-              type="button"
-              className="add-click"
-              onClick={this.toggleAddInput}
-            >
-              <i className="fa fa-plus-square add-notes col-lg-4" />
-            </button>
+        <div className="header">
+          <div className="logo col-lg-4">
+            <img src="logo.png" alt="logo" />
           </div>
-          <div className="search-div">
-            <input
-              type="text"
-              className="form-control "
-              placeholder="Search your todos...."
-              id="searchInput"
-              onChange={this.handleSearchInputChange}
-              value={this.state.searchInput}
-            />
-          </div>
-          {this.state.showNoteAddInput ? (
-            <NotesItem
-              notesTitle={this.state.notesTitle}
-              notesContent={this.state.notesDetail}
-              notesDate={this.state.notesDate}
-              onNotesTitleInput={this.handleTitleInputChange}
-              onNotesDetailInput={this.handleDetailInputChange}
-              onSaveClick={this.handleSaveClick}
-            />
-          ) : null}
-          <div className="note-lists">
-            {filtered.map((note, i) => {
-              return (
-                <NotesItem
-                  key={i}
-                  notesTitle={note.notesTitleText}
-                  notesContent={note.notesDetailText}
-                  notesDate={note.notesDateInput}
-                  // onNotesTitleInput={this.handleTitleInputChange}
-                  // onNotesDetailInput={this.handleDetailInputChange}
-                  // onSaveClick={this.handleSaveClick}
-                  onDeleteClick={() => {
-                    this.handleRemoveNotes(i);
-                  }}
-                  // editMode={note.editMode}
-                  // onEditMode={() => {
-                  //   this.handleEditMode(i);
-                  // }}
-                  // onEditNoteChange={(e) => {
-                  //   this.handleEditNoteChange(e, i);
-                  // }}
-                />
-              );
-            })}
-          </div>
-        </form>
+          <h4 className="col-lg-4">Add Your New Notes Here: </h4>
+          <button
+            type="button"
+            className="add-click"
+            onClick={this.toggleAddInput}
+          >
+            <i className="fa fa-plus-square add-notes col-lg-4" />
+          </button>
+        </div>
+        <div className="search-div">
+          <input
+            type="text"
+            className="form-control "
+            placeholder="Search your todos...."
+            id="searchInput"
+            onChange={this.handleSearchInputChange}
+            value={this.state.searchInput}
+          />
+        </div>
+        {this.state.showNoteAddInput ? (
+          <NotesItem
+            notesTitle={this.state.notesTitle}
+            notesContent={this.state.notesDetail}
+            notesDate={this.state.notesDate}
+            onNotesTitleInput={this.handleTitleInputChange}
+            onNotesDetailInput={this.handleDetailInputChange}
+            onSaveClick={this.handleSaveClick}
+          />
+        ) : null}
+        <div className="note-lists">
+          {filtered.map((note, i) => {
+            return (
+              <NotesItem
+                key={i}
+                notesTitle={note.notesTitleText}
+                notesContent={note.notesDetailText}
+                notesDate={note.notesDateInput}
+                // onNotesTitleInput={this.handleTitleInputChange}
+                // onNotesDetailInput={this.handleDetailInputChange}
+                // onSaveClick={this.handleSaveClick}
+                onDeleteClick={() => {
+                  this.handleRemoveNotes(i);
+                }}
+                // editMode={note.editMode}
+                // onEditMode={() => {
+                //   this.handleEditMode(i);
+                // }}
+                // onEditNoteChange={(e) => {
+                //   this.handleEditNoteChange(e, i);
+                // }}
+              />
+            );
+          })}
+        </div>
       </div>
     );
   }
