@@ -14,7 +14,7 @@ const NotesItem = (props) => {
       <div className="edit-del-btn">
         <button>✍️</button>
 
-        <button onClick={props.onDeleteClick}>
+        <button type="button">
           <i className="fa fa-trash" />
         </button>
       </div>
@@ -26,7 +26,7 @@ const NotesItem = (props) => {
         </p>
       </div>
 
-      <button className="save" onClick={props.onSaveClick}>
+      <button type="button" className="save" onClick={props.onSaveClick}>
         Save Note
       </button>
     </div>
