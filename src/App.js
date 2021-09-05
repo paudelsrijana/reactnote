@@ -107,8 +107,6 @@ class App extends Component {
   render() {
     const filtered = this.searchnotes();
     const noNote = this.state.notes.length === 0;
-    // const noteEmpty =
-    //   this.state.notesTitle.length === 0 && this.state.notesDetail.length === 0;
     return (
       <div className="container">
         <div className="header">
@@ -145,7 +143,6 @@ class App extends Component {
             onNotesTitleInput={this.handleTitleInputChange}
             onNotesDetailInput={this.handleDetailInputChange}
             onSaveClick={this.handleSaveClick}
-            // noteEmpty={noteEmpty}
             showNoteAddInput={this.state.showNoteAddInput}
             readOnly={false}
           />

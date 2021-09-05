@@ -84,7 +84,7 @@ button.save {
   flex-direction: column;
   background-color: rgba(19, 189, 90, 0.158);
   padding: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 .edit-del-btn {
   position: absolute;
@@ -111,4 +111,15 @@ button.save {
 }
 .note-footer {
   margin-top: 20px;
+}
+.fa-trash {
+  color: red;
+  font-size: 30px;
+}
+.edit {
+  size: 30px;
+}
+button {
+  background: none;
+  border: none;
 }
