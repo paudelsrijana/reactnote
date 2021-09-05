@@ -62,13 +62,11 @@ class App extends Component {
     });
     // window.localStorage.setItem("items", JSON.stringify(notesCloned));
   };
-
   componentDidUpdate(prevProps, prevState) {
     if (prevState.notes !== this.state.notes) {
       window.localStorage.setItem("items", JSON.stringify(this.state.notes));
     }
   }
-
   toggleAddInput = () => {
     this.setState((state) => ({ showNoteAddInput: !state.showNoteAddInput }));
   };
@@ -107,6 +105,7 @@ class App extends Component {
   render() {
     const filtered = this.searchnotes();
     const noNote = this.state.notes.length === 0;
+
     return (
       <div className="container">
         <div className="header">
@@ -121,19 +120,19 @@ class App extends Component {
           >
             <i className="fa fa-plus-square add-notes col-lg-4" />
           </button>
+          {noNote ? null : (
+            <div className="search-div">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Search your notes...."
+                id="searchInput"
+                onChange={this.handleSearchInputChange}
+                value={this.state.searchInput}
+              />
+            </div>
+          )}
         </div>
-        {noNote ? null : (
-          <div className="search-div">
-            <input
-              type="text"
-              className="form-control "
-              placeholder="Search your notes...."
-              id="searchInput"
-              onChange={this.handleSearchInputChange}
-              value={this.state.searchInput}
-            />
-          </div>
-        )}
 
         {this.state.showNoteAddInput ? (
           <NotesItem

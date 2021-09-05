@@ -9,6 +9,11 @@
   display: flex;
   margin-bottom: 20px;
 }
+.form-control {
+  width: 300px;
+  margin-left: 50px;
+  margin-top: 10px;
+}
 .header .fa-plus-square {
   text-align: left;
   color: green;
