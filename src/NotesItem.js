@@ -1,19 +1,31 @@
+import React, { useRef } from "react";
+
 const NotesItem = (props) => {
+  const inputRef = useRef();
+
+  const handleEdit = () => {
+    inputRef.current.focus();
+    props.onEditMode();
+  };
+
   return (
     <div className="notes">
       <input
         placeholder=" Note Title"
         value={props.notesTitle}
         onChange={props.onNotesTitleInput}
+        readOnly={props.readOnly}
+        ref={inputRef}
       />
       <textarea
         placeholder="Note Content"
         value={props.notesContent}
         onChange={props.onNotesDetailInput}
+        readOnly={props.readOnly}
       />
       {props.showNoteAddInput ? null : (
         <div className="edit-del-btn">
-          <button>✍️</button>
+          <button onClick={handleEdit}>✍️</button>
           <button type="button" onClick={props.onDeleteClick}>
             <i className="fa fa-trash" />
           </button>

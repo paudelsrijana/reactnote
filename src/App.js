@@ -41,7 +41,7 @@ class App extends Component {
         notesTitleText: notesTitle,
         notesDetailText: notesDetail,
         notesDateInput: notesDate.toLocaleDateString(),
-        // editMode: false,
+        editMode: false,
       };
       const notesCloned = this.state.notes.slice();
       notesCloned.push(note);
@@ -60,7 +60,7 @@ class App extends Component {
     this.setState({
       notes: notesCloned,
     });
-    window.localStorage.setItem("items", JSON.stringify(notesCloned));
+    // window.localStorage.setItem("items", JSON.stringify(notesCloned));
   };
 
   componentDidUpdate(prevProps, prevState) {
@@ -85,7 +85,7 @@ class App extends Component {
         .includes(this.state.searchInput.toLowerCase());
     });
   };
-  /* handleEditMode = (index) => {
+  handleEditMode = (index) => {
     const notesCloned = this.state.notes.slice();
     const prevEditMode = notesCloned[index].editMode;
     notesCloned[index].editMode = !prevEditMode;
@@ -93,19 +93,16 @@ class App extends Component {
     this.setState({
       notes: notesCloned,
     });
-    console.log("hey");
   };
 
-  handleEditNoteChange = (event, index) => {
+  handleEditNoteChange = (event, index, key) => {
     const notesCloned = this.state.notes.slice();
-    const title = event.target.value;
-    const detail = event.target.value;
-    notesCloned[index].notesTitleText = title;
-    notesCloned[index].notesDetailText = detail;
+    const value = event.target.value;
+    notesCloned[index][key] = value;
     this.setState({
       notes: notesCloned,
     });
-  }; */
+  };
 
   render() {
     const filtered = this.searchnotes();
@@ -150,6 +147,7 @@ class App extends Component {
             onSaveClick={this.handleSaveClick}
             // noteEmpty={noteEmpty}
             showNoteAddInput={this.state.showNoteAddInput}
+            readOnly={false}
           />
         ) : null}
         <div className="note-lists">
@@ -160,16 +158,21 @@ class App extends Component {
                 notesTitle={note.notesTitleText}
                 notesContent={note.notesDetailText}
                 notesDate={note.notesDateInput}
-                // onNotesTitleInput={this.handleTitleInputChange}
-                // onNotesDetailInput={this.handleDetailInputChange}
+                onNotesTitleInput={(e) =>
+                  this.handleEditNoteChange(e, i, "notesTitleText")
+                }
+                onNotesDetailInput={(e) =>
+                  this.handleEditNoteChange(e, i, "notesDetailText")
+                }
                 // onSaveClick={this.handleSaveClick}
                 onDeleteClick={() => {
                   this.handleRemoveNotes(i);
                 }}
+                readOnly={!note.editMode}
                 // editMode={note.editMode}
-                // onEditMode={() => {
-                //   this.handleEditMode(i);
-                // }}
+                onEditMode={() => {
+                  this.handleEditMode(i);
+                }}
                 // onEditNoteChange={(e) => {
                 //   this.handleEditNoteChange(e, i);
                 // }}
@@ -177,6 +180,9 @@ class App extends Component {
             );
           })}
         </div>
+        {/* <pre>
+          <code>{JSON.stringify(this.state, null, 2)}</code>
+        </pre> */}
       </div>
     );
   }
